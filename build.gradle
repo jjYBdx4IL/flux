@@ -36,6 +36,14 @@ if (version.contains('-') && !(project.hasProperty('branchName') && branchName =
   version += '+' + revisionNumber
 }
 
+if (JavaVersion.current().isJava8Compatible()) {
+  allprojects {
+    tasks.withType(Javadoc) {
+      options.addStringOption('Xdoclint:none', '-quiet')
+    }
+  }
+}
+
 afterEvaluate { println "Building ${name} version ${version}" }
 
 ext.os = System.getProperty('os.name').toLowerCase()

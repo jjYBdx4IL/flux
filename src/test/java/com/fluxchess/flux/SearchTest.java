@@ -59,6 +59,7 @@ public class SearchTest implements IProtocolHandler {
 		command.accept(this);
 	}
 
+	@Override
 	public IEngineCommand receive() {
 		IEngineCommand command = null;
 		try {
@@ -73,19 +74,23 @@ public class SearchTest implements IProtocolHandler {
 		return command;
 	}
 
+	@Override
 	public void send(ProtocolInitializeAnswerCommand command) {
 		System.out.println(command);
 	}
 
+	@Override
 	public void send(ProtocolReadyAnswerCommand command) {
 		System.out.println(command);
 	}
 
+	@Override
 	public void send(ProtocolBestMoveCommand command) {
 		this.commandQueue.add(new EngineQuitCommand());
 		System.out.println(command);
 	}
 
+	@Override
 	public void send(ProtocolInformationCommand command) {
 		if (command.getMate() != null) {
 			if (command.getMate() == 30) {
@@ -95,6 +100,7 @@ public class SearchTest implements IProtocolHandler {
 		System.out.println(command);
 	}
 
+	@Override
 	public String toString() {
 		return "FluxTesting Protocol";
 	}
