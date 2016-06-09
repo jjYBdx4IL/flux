@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.jjYBdx4IL.chess</groupId>
     <artifactId>flux</artifactId>
-    <version>2.2.2.1</version>
+    <version>2.2.2.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Flux</name>
     <description>A Java Chess Engine</description>
@@ -62,7 +62,7 @@
         <connection>scm:git:git://github.com/jjYBdx4IL/flux.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/jjYBdx4IL/flux.git</developerConnection>
         <url>https://github.com/jjYBdx4IL/flux</url>
-        <tag>2.2.2.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <organization>
