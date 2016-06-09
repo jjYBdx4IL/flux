@@ -22,7 +22,18 @@ import com.fluxchess.flux.board.Hex88Board;
 
 public interface IEvaluation {
 
+	/**
+	 * Prints the evaluation of the board.
+	 * @param board the board.
+	 */
 	public abstract void print(Hex88Board board);
+	
+	/**
+	 * Evaluates the board.
+	 * 
+	 * @param board the board.
+	 * @return the evaluation value in centipawns.
+	 */
 	public abstract int evaluate(Hex88Board board);
 
 }

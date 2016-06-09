@@ -28,6 +28,13 @@ import static org.junit.Assert.fail;
 public class Hex88BoardTest {
 
 	@Test
+	public void testStandardSetup() {
+		GenericBoard board = new GenericBoard(GenericBoard.STANDARDSETUP);
+		Hex88Board testBoard = new Hex88Board(board);
+		assertEquals("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", testBoard.toString());
+	}
+	
+	@Test
 	public void testClassCreation() {
 		// Setup a new board
 		GenericBoard board = new GenericBoard(GenericBoard.STANDARDSETUP);

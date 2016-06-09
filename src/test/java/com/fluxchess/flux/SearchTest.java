@@ -69,25 +69,26 @@ public class SearchTest implements IProtocolHandler {
 		}
 		assert command != null;
 		
-		System.out.println(command);
+		System.out.println("rcve " + command);
 
 		return command;
 	}
 
 	@Override
 	public void send(ProtocolInitializeAnswerCommand command) {
-		System.out.println(command);
+		System.out.println("send " + command);
 	}
 
 	@Override
 	public void send(ProtocolReadyAnswerCommand command) {
-		System.out.println(command);
+		System.out.println("send " + command);
 	}
 
 	@Override
 	public void send(ProtocolBestMoveCommand command) {
 		this.commandQueue.add(new EngineQuitCommand());
-		System.out.println(command);
+		System.out.println("send " + command);
+		System.out.println(command.bestMove);
 	}
 
 	@Override
@@ -97,7 +98,7 @@ public class SearchTest implements IProtocolHandler {
 				this.found = true;
 			}
 		}
-		System.out.println(command);
+		System.out.println("send " + command);
 	}
 
 	@Override
