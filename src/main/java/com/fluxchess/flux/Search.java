@@ -64,8 +64,8 @@ public final class Search implements ISearch, Runnable {
 	
 	// Search control
 	private Timer timer = null;
-	private boolean canStop = false;
-	private boolean stopped = true;
+	private volatile boolean canStop = false; // concurrent access
+	private volatile boolean stopped = true; // concurrent access
 	private boolean stopFlag = false;
 	private boolean doTimeManagement = true;
 	private boolean analyzeMode = false;
