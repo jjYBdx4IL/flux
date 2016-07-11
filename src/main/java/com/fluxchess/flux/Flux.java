@@ -21,6 +21,10 @@ package com.fluxchess.flux;
 import com.fluxchess.flux.board.Hex88Board;
 import com.fluxchess.flux.board.IntColor;
 import com.fluxchess.flux.evaluation.Evaluation;
+import com.fluxchess.flux.move.IntMove;
+import com.fluxchess.flux.table.EvaluationTable;
+import com.fluxchess.flux.table.PawnTable;
+import com.fluxchess.flux.table.TranspositionTable;
 import com.fluxchess.jcpi.AbstractEngine;
 import com.fluxchess.jcpi.commands.*;
 import com.fluxchess.jcpi.models.GenericBoard;
@@ -28,17 +32,13 @@ import com.fluxchess.jcpi.models.GenericColor;
 import com.fluxchess.jcpi.models.GenericMove;
 import com.fluxchess.jcpi.options.AbstractOption;
 import com.fluxchess.jcpi.protocols.IProtocolHandler;
-import com.fluxchess.flux.move.IntMove;
-import com.fluxchess.flux.table.EvaluationTable;
-import com.fluxchess.flux.table.PawnTable;
-import com.fluxchess.flux.table.TranspositionTable;
-
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * This is the main entry class.
  */
+@SuppressWarnings("FinalClass")
 public final class Flux extends AbstractEngine {
 
 	private Hex88Board board = null;
@@ -50,8 +50,6 @@ public final class Flux extends AbstractEngine {
 
 	/**
 	 * Creates a new Flux.
-	 * 
-	 * @param protocol the protocol.
 	 */
 	public Flux() {
 		// Set the protocol

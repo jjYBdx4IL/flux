@@ -18,16 +18,16 @@
  */
 package com.fluxchess.flux;
 
+import com.fluxchess.flux.move.IntValue;
+import com.fluxchess.flux.move.PrincipalVariation;
+import com.fluxchess.flux.table.TranspositionTable;
 import com.fluxchess.jcpi.commands.IProtocol;
 import com.fluxchess.jcpi.commands.ProtocolBestMoveCommand;
 import com.fluxchess.jcpi.commands.ProtocolInformationCommand;
 import com.fluxchess.jcpi.models.GenericMove;
-import com.fluxchess.flux.move.IntValue;
-import com.fluxchess.flux.move.PrincipalVariation;
-import com.fluxchess.flux.table.TranspositionTable;
-
 import java.util.List;
 
+@SuppressWarnings("FinalClass")
 public final class InformationTimer {
 
 	private final IProtocol protocol;
@@ -51,6 +51,7 @@ public final class InformationTimer {
 	 * Creates a new InformationTimer
 	 * 
 	 * @param protocol the protocol.
+	 * @param transpositionTable
 	 */
 	public InformationTimer(IProtocol protocol, TranspositionTable transpositionTable) {
 		assert protocol != null;
@@ -73,7 +74,9 @@ public final class InformationTimer {
 	 * Starts the InformationTimer.
 	 */
 	public void start() {
-		if (this.search == null) throw new IllegalStateException();
+		if (this.search == null) {
+		    throw new IllegalStateException();
+		}
 		
 		// Set the current time
 		this.totalTimeStart = System.currentTimeMillis();
@@ -230,8 +233,8 @@ public final class InformationTimer {
 	/**
 	 * Sends the centipawn information.
 	 * 
-	 * @param currentCentipawns the current centipawn value.
-	 * @param currentMoveList the current move list/principal variation.
+         * @param pv
+	 * @param pvNumber
 	 */
 	public void sendInformationCentipawns(PrincipalVariation pv, int pvNumber) {
 		assert pv != null;
@@ -264,8 +267,9 @@ public final class InformationTimer {
 	/**
 	 * Sends the mate information.
 	 * 
+         * @param pv
 	 * @param currentMateDepth the current mate depth.
-	 * @param currentMoveList the current move list/principal variation.
+         * @param pvNumber
 	 */
 	public void sendInformationMate(PrincipalVariation pv, int currentMateDepth, int pvNumber) {
 		assert pv != null;

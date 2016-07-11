@@ -21,6 +21,7 @@ package com.fluxchess.flux.move;
 import com.fluxchess.flux.board.IntChessman;
 import com.fluxchess.flux.table.HistoryTable;
 
+@SuppressWarnings("FinalClass")
 public final class MoveRater {
 
 	private static HistoryTable historyTable;
@@ -28,7 +29,6 @@ public final class MoveRater {
 	/**
 	 * Creates a new MoveRater.
 	 * 
-	 * @param newBoard the board.
 	 * @param newHistoryTable the history table.
 	 */
 	public MoveRater(HistoryTable newHistoryTable) {
